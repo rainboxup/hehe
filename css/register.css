@@ -3,6 +3,7 @@ body{
 	height: 500px;
 	min-width: 300px;
 	max-width: 300px;
+	margin: 0 auto;
 	border: 1px solid #000;
 }
 .blockup{
@@ -51,4 +52,7 @@ body{
 	height: 29px;
 	background: #0095F2;
 	margin: 42px auto 0;
+}
+.btn:hover{
+	background: rgb(77,179,255);
 }
