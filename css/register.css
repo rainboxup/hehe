@@ -1,0 +1,54 @@
+body{
+	width: 300px;
+	height: 500px;
+	min-width: 300px;
+	max-width: 300px;
+	border: 1px solid #000;
+}
+.blockup{
+	padding: 9px 14px;
+}
+.blockup a{
+	display: block;
+	width: 10px;
+	height: 10px;
+	float: right;
+	background: url(../img/1_登录_03.jpg) 0 0 no-repeat ;
+}
+.log{
+	width: 80px;
+	height: 89px;
+	margin: 68px auto;
+	background: url(../img/1_登录_07.png);
+}
+.tet{
+	position: relative;
+	font-size: 12px;
+	width: 194px;
+	padding: 3px 0 3px 46px;
+	border-bottom: 1px solid #B8B8B8;
+	margin: 0 auto 20px;
+	
+}
+.tet>span{
+	position: absolute;
+	left:35px;
+	margin-left: -30px;
+}
+.tet>input{
+	border: none;
+	outline:none;
+}
+.btn{
+	display:block;I
+	border: none;
+	width: 240px;
+	 color: #fff;
+	 line-height: 29px;
+	 text-align: center;
+	 font-size: 14px;
+	 border-radius: 2px;
+	height: 29px;
+	background: #0095F2;
+	margin: 42px auto 0;
+}

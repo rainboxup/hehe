@@ -1,0 +1,29 @@
+html,body,h1,h2,h3,h4,input,p,ul{
+    margin: 0;
+    padding: 0;
+}
+
+ul,ol,li{
+	list-style: none;
+}
+body{
+    font-family: "微软雅黑";
+    color: #ADADAD;
+}
+a{
+	color: #808080;
+	text-decoration: none;
+}
+
+
+.clearfix:after{
+	content: "";
+	display: block;
+	visibility: hidden; 
+	height: 0;
+	line-height: 0;
+	clear: both;
+}
+.clearfix{
+	zoom: 1;
+}
