@@ -3,18 +3,16 @@ body{
 	height: 500px;
 	min-width: 300px;
 	max-width: 300px;
-	margin: 0 auto;
-	border: 1px solid #000;
+	border: 1px solid #dadada;
+	box-shadow: 0 0 8px rgba(204,204,204,0.4);
+	border-radius: 4px;
 }
 .blockup{
 	padding: 9px 14px;
 }
 .blockup a{
 	display: block;
-	width: 10px;
-	height: 10px;
 	float: right;
-	background: url(../img/1_登录_03.jpg) 0 0 no-repeat ;
 }
 .log{
 	width: 80px;
