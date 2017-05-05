@@ -23,19 +23,17 @@ body{
 .tet{
 	position: relative;
 	font-size: 12px;
+	border-bottom: 1px solid #B8B8B8;
+}
+
+
+input{
+	display: block;
 	width: 235px;
 	padding: 3px 0 3px 5px;
-	border-bottom: 1px solid #B8B8B8;
 	margin: 0 auto 20px;
-	
-}
-.tet>span{
-	position: absolute;
-	left:35px;
-	margin-left: -30px;
-}
-.tet>input{
-	border: none;
+	border:none;
+	border-bottom: 1px solid #B8B8B8;
 	outline:none;
 }
 .btn{

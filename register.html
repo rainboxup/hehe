@@ -8,14 +8,23 @@
 		<link rel="stylesheet" type="text/css" href="css/register.css"/>
 	</head>
 	<body>
+		<div id="reg">
 		<div class="blockup"><a href="#" class="iconfont">&#xe6e6;</a></div>
 		<div class="log"></div>
-		<div class="tet">
-		<input  type="text" name="" placeholder="用户名" id="" value="" />
-		</div>
-		<div class="tet">
+		<input  type="text" name="" @focus="jiao()" placeholder="用户名" id="" value="" />
 		<input  type="password" name="" placeholder="密码"id="" value="" />
-		</div>
 		<a class="btn" href="#">登录</a>
+		</div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			new Vue({
+				el:'#reg',
+				methodes:{
+					jiao:function(){
+						this.style.boderBottom='1px solid red'
+					}
+				}
+			})
+		</script>
 	</body>
 </html>
