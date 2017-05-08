@@ -9,22 +9,15 @@
 	</head>
 	<body>
 		<div id="reg">
-		<div class="blockup"><a href="#" class="iconfont">&#xe6e6;</a></div>
+		<div class="blockup"><a href="javascript:window.opener=null;window.close()" class="iconfont">&#xe6e6;</a></div>
 		<div class="log"></div>
-		<input  type="text" name="" @focus="jiao()" placeholder="用户名" id="" value="" />
-		<input  type="password" name="" placeholder="密码"id="" value="" />
-		<a class="btn" href="#">登录</a>
+		<input  type="text" name="" v-model='username' placeholder="用户名" id="" value="" />
+		<input class="mg0"  type="password" name="" v-model='password' placeholder="密码" id="" value="" />
+		<p class="hint">{{state}}</p>
+		<a class="btn" @click='register' href="JavaScript:void(0)">登录</a>
 		</div>
-		<script src="https://unpkg.com/vue/dist/vue.js"></script>
-		<script type="text/javascript">
-			new Vue({
-				el:'#reg',
-				methodes:{
-					jiao:function(){
-						this.style.boderBottom='1px solid red'
-					}
-				}
-			})
-		</script>
+	<script src="js/vue1028.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/vue-resource.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

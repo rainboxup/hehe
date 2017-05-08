@@ -5,7 +5,7 @@
     // 设置服务器响应的文件类型
     header("Content-Type:text/plain; charset=utf-8");
     if($uname == 'admin' && $pw == '123'){
-        echo '登录成功';
+        echo '0';
     }else{
         echo '用户名或者密码错误';
     }

@@ -47,8 +47,18 @@ input{
 	 border-radius: 2px;
 	height: 29px;
 	background: #0095F2;
-	margin: 42px auto 0;
+	margin: 22px auto 0;
 }
 .btn:hover{
 	background: rgb(77,179,255);
+}
+.hint{
+	height: 20px;
+	line-height: 23px;
+	padding-left: 30px;
+	font-size: 12px;
+	color: red;
+}
+.mg0{
+	margin-bottom: 0;
 }
