@@ -11,9 +11,9 @@
 		<div id="reg">
 		<div class="blockup"><a href="javascript:window.opener=null;window.close()" class="iconfont">&#xe6e6;</a></div>
 		<div class="log"></div>
-		<input  type="text" name="" @keyCodes.enter='register' v-model='username' placeholder="用户名" id="" value="" />
-		<input class="mg0" @keyCodes.enter='register' type="password" name="" v-model='password' placeholder="密码" id="" value="" />
-		<p class="hint">{{state}}</p>
+		<input  type="text"  v-model='username' placeholder="用户名" id="" value="" />
+		<input class="mg0"  type="password" name="" v-model='password' placeholder="密码" id="" value="" @keydown.enter="register"/>
+		<p class="hint" v-text='state'></p>
 		<a class="btn" @click='register' href="JavaScript:void(0)" >登录</a>
 		</div>
 	<script src="js/vue1028.js" type="text/javascript" charset="utf-8"></script>
