@@ -1,56 +1,93 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
-		<link rel="stylesheet" type="text/css" href="css/commonality.css"/>
-		<link rel="stylesheet" type="text/css" href="css/system.css"/>
-	</head>
-	<body >
-		<div id="bo">
+		
+		<link rel="stylesheet" type="text/css" href="css/commonality.css" />
+		<link rel="stylesheet" type="text/css" href="css/system.css" />
+		<link rel="stylesheet" type="text/css" href="node_modules/element-ui/lib/theme-default/index.css">
 			
+	</head>
 
-		<div class="nav">
-			<a href="#"><img src="img/头像.jpg" alt="" /></a>
-			<a href="#" ><div class="iconfont fun">&#xe632;</div></a>
-		</div>
-		<div class="content">
-			<div class="list">
-				<div class="search"><input type="text" placeholder="搜索" id="" value="" /> <a href="#" class="iconfont">&#xe6f1;</a></div>
+	<body style="height: 10000px;">
+		<div id="bo">
+
+			<div class="nav">
+				<a href="#"><img src="img/头像.jpg" alt="" /></a>
+				<a href="#">
+					<div class="iconfont fun">&#xe632;</div>
+				</a>
+			</div>
+			<div class="content">
+				<div class="list">
+					<div class="search"><input type="text" placeholder="搜索" id="" value="" />
+						<a href="#" class="iconfont">&#xe6f1;</a>
+					</div>
 					<ul class="clist">
-						<li><a href="#"><span class="iconfont icon">&#xe6a3;</span>图书</a></li>
-						<li><a href="#"><span class="iconfont icon">&#xe600;</span>文章</a></li>
-						<li class="lastli" id="list" ><a href="#" @click="isxiansi=!isxiansi"><span class="iconfont icon">&#xe691;</span>请假<span class="iconfont bicon">&#xe6b4;</span></a>
+						<li>
+							<a href="#"><span class="iconfont icon">&#xe6a3;</span>图书</a>
+						</li>
+						<li>
+							<a href="#"><span class="iconfont icon">&#xe600;</span>文章</a>
+						</li>
+						<li class="lastli" id="list">
+							<a href="#" @click="isxiansi=!isxiansi"><span class="iconfont icon">&#xe691;</span>请假<span class="iconfont bicon">&#xe6b4;</span></a>
 							<ul v-if="isxiansi">
-								<li v-for="i in list"><a href="#" v-text='i'></a></li>
+								<li v-for="i in list">
+									<a href="#" v-text='i'></a>
+								</li>
 							</ul>
 						</li>
 					</ul>
-			</div>
-			<div class="particulars">
-				<div class="title">
-					<h1>请假</h1>
-					<a href="#" class="iconfont minimize">&#xe6f3;</a>
-					<a href="#" class="iconfont Windowed">&#xe6fe;</a>
-					<a href="#" class="iconfont close">&#xe6e6;</a>
 				</div>
-				<div>
-					<div></div>
+				<div class="particulars">
+					<div class="title">
+						<h1>请假</h1>
+						<a href="#" class="iconfont minimize">&#xe6f3;</a>
+						<a href="#" class="iconfont Windowed">&#xe6fe;</a>
+						<a href="#" class="iconfont close">&#xe6e6;</a>
+					</div>
+					<div>
+						<div id="ces">
+							<el-button type="text" size="small">事假</el-button>
+							<el-button type="text">病假</el-button>
+							<el-dropdown trigger="click">
+								<span class="el-dropdown-link">其他
+									<i class="el-icon-caret-bottom el-icon--right"></i>
+								</span>
+								<el-dropdown-menu slot="dropdown">
+									<el-dropdown-item>例假</el-dropdown-item>
+									<el-dropdown-item>体检家</el-dropdown-item>
+									<el-dropdown-item>紧急事假</el-dropdown-item>
+									<el-dropdown-item>重大疾病假</el-dropdown-item>
+									<el-dropdown-item>婚假</el-dropdown-item>
+									<el-dropdown-item>产假</el-dropdown-item>
+									<el-dropdown-item>流产假</el-dropdown-item>
+									<el-dropdown-item>丧假</el-dropdown-item>
+									<el-dropdown-item>带薪年假</el-dropdown-item>
+								</el-dropdown-menu>
+							</el-dropdown>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-		</div>
-		
-		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+		<script src="node_modules/vue/dist/vue.min.js"></script>
+		<script src="node_modules/vue-router/dist/vue-router.js"></script>
+		<script src="node_modules/element-ui/lib/index.js"></script>
 		<script type="text/javascript">
 			new Vue({
-				el:'#bo',
-				data:{
-					isxiansi:false,
-					list:['请假','请假审核','历史记录']
+				el: '#bo',
+				data: {
+					isxiansi: false,
+					list: ['请假', '请假审核', '历史记录']
 				}
 			});
 		</script>
 	</body>
+
 </html>

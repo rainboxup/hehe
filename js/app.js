@@ -1,6 +1,6 @@
 new Vue({
 	el: '#reg',
-	data: {
+	data(){
 		return {
 			username:'',
 			password:'',
