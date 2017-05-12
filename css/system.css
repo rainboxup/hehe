@@ -119,7 +119,9 @@ s}
 }
 .title{
 	box-sizing: border-box;
-	padding: 24px 0 17px 20px;
+	padding: 24px 0 18px 20px;
+	box-sizing: border-box;
+	height: 69px;
 	width: 100%;
 	border-bottom: 1px solid #ccc;
 	position: relative;
@@ -145,4 +147,150 @@ s}
 .close{
 	top: 7px;
 	right:13px ;
+}
+#ces{
+	padding: 20px 0 0 45px;
+}
+.selectup {
+	display: inline-block;
+	width: 80px;
+	text-align: center;
+	height: 30px;
+	font-size: 14px;
+	position: relative;
+	line-height:30px;
+	background: #e0e0e0;
+	color: #333333;
+}
+.selectup2{
+	margin: 0 6px;
+}
+.selectup:hover {
+	color: #0095f2;
+}
+.iconx{
+	position: relative;
+	top: 1px;
+	font-size: 16px;
+}
+.selectup>ul{
+	background: #fff;
+	text-align: left;
+	position: absolute;
+	z-index: 2;
+	top: 30px;
+	width: 104px;
+	left: 0;
+	border: 1px solid #e0e0e0;
+	box-shadow: 0 4px 4px #e0e0e0;
+	
+}
+.selectup>ul>li{
+	cursor:pointer;
+	text-indent: 16px;
+	font-size: 14px;
+	color: #333;
+}
+.selectup>ul>li:hover{
+	color: #0095f2;
+}
+.selectupa{
+	display: inline-block;
+	width: 80px;
+	text-align: center;
+	height: 30px;
+	font-size: 14px;
+	position: relative;
+	line-height:30px;
+	background: #e0e0e0;
+	color: #333333;
+	background: #0095f2;
+	color: #fff;
+}
+#fate{
+	width: 260px;
+	float: left;
+	overflow: hidden;
+}
+#fate .bdate,#fate .edate{
+	width: 100%;
+	margin-top: 20px;
+	height: 30px;
+}
+#fate .bdate>input,#fate .edate>input{
+	box-sizing: border-box;
+	width: 100%;
+	height: 30px;
+	border-radius: 0;
+}
+.multi-line{
+	margin-top: 20px;
+	height: 120px;
+	width:100%;
+	resize: none;
+	box-sizing: border-box;
+	outline: none;
+	overflow: hidden;
+	padding: 5px;
+	border: 1px solid #bfcbd9;
+}
+.multi-line:hover{
+	border-color: #8391a5;
+}
+.multi-line::placeholder{
+	color: #b3b3b3;
+}
+.submit{
+	display: block;
+	margin-top: 30px;
+	width: 100%;
+	height: 30px;
+	background: #0095f2;
+	text-align: center;
+	line-height: 30px;
+	color:#fff;
+	font-size: 12px;
+	border-radius: 2px;
+}
+.submit:active{
+	background: #007ecc;
+}
+
+.qlist{
+	float: left;
+	padding:8px 0 0 55px;
+}
+.qlist h4{
+	color: 111111;
+	font-size: 14px
+	font-weight: 500;
+}
+.qlist li{
+	padding-top: 16px;
+	font-size: 12px;
+	color: #808080;
+}
+.qdate{
+	display: inline-block;
+	margin-right: 32px;
+}
+.black{
+	color: #333333;
+}
+.more{
+	color: #25a8fa;
+	float: right;
+	margin:14px -20px 0 0;
+}
+.qlisttop{
+	height: 185px;
+}
+.qlistb{
+	padding-top: 60px;
+}
+.qlistb li{
+	padding-top: 10px;
+}
+.qlistb ul{
+	padding-top: 2px;
 }

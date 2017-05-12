@@ -5,14 +5,14 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
-		
+
+		<link rel="stylesheet" type="text/css" href="node_modules/element-ui/lib/theme-default/index.css">
 		<link rel="stylesheet" type="text/css" href="css/commonality.css" />
 		<link rel="stylesheet" type="text/css" href="css/system.css" />
-		<link rel="stylesheet" type="text/css" href="node_modules/element-ui/lib/theme-default/index.css">
-			
+
 	</head>
 
-	<body style="height: 10000px;">
+	<body>
 		<div id="bo">
 
 			<div class="nav">
@@ -44,33 +44,55 @@
 					</ul>
 				</div>
 				<div class="particulars">
-					<div class="title">
+					<div id="zj">
+						<div class="title">
 						<h1>请假</h1>
 						<a href="#" class="iconfont minimize">&#xe6f3;</a>
 						<a href="#" class="iconfont Windowed">&#xe6fe;</a>
 						<a href="#" class="iconfont close">&#xe6e6;</a>
 					</div>
 					<div>
-						<div id="ces">
-							<el-button type="text" size="small">事假</el-button>
-							<el-button type="text">病假</el-button>
-							<el-dropdown trigger="click">
-								<span class="el-dropdown-link">其他
-									<i class="el-icon-caret-bottom el-icon--right"></i>
-								</span>
-								<el-dropdown-menu slot="dropdown">
-									<el-dropdown-item>例假</el-dropdown-item>
-									<el-dropdown-item>体检家</el-dropdown-item>
-									<el-dropdown-item>紧急事假</el-dropdown-item>
-									<el-dropdown-item>重大疾病假</el-dropdown-item>
-									<el-dropdown-item>婚假</el-dropdown-item>
-									<el-dropdown-item>产假</el-dropdown-item>
-									<el-dropdown-item>流产假</el-dropdown-item>
-									<el-dropdown-item>丧假</el-dropdown-item>
-									<el-dropdown-item>带薪年假</el-dropdown-item>
-								</el-dropdown-menu>
-							</el-dropdown>
+						<div id="ces" >
+							<div id="fate">
+							<div  :class="{selectup:false,selectupa:true}" >事假</div>
+							<div  class="selectup2" :class="{selectup:color1,selectupa:color2}">病假</div>
+							<div :class="{selectup:color1,selectupa:color2}" @click="isselect=!isselect"><span v-text='lelse'></span><i class="iconfont iconx">&#xe68f;</i>
+								<ul v-if='isselect'>
+									<li v-for="i in list2" v-text='i' @click='lelse=i'></li>
+								</ul>
+								
+							</div>
+									<el-date-picker class='bdate' v-model="value1" type="datetime" placeholder="选择开始时间"> </el-date-picker>
+									<el-date-picker class='edate' v-model="value2" type="datetime" placeholder="选择结束时间"> </el-date-picker>
+									<textarea class="multi-line" placeholder="请输入请假原因（事假可不填）"></textarea>
+									<a href="javascript:void(0)" class="submit">提交</a>
 						</div>
+						<div class="qlist">
+							<div class="qlisttop">
+								<h4>请假记录</h4>
+							<ul>
+								<li><span class="qdate">2017-03-20</span>你请了<span class="black">病假</span>，请假时间是<span class="black">1天</span></li>
+								<li><span class="qdate">2017-03-19</span>你请了<span class="black">病假</span>，请假时间是<span class="black">三小时</span></li>
+								<li><span class="qdate">2017-03-19</span>你请了<span class="black">病假</span>，请假时间是<span class="black">三小时</span></li>
+								<li><span class="qdate">2017-03-19</span>你请了<span class="black">病假</span>，请假时间是<span class="black">三小时</span></li>
+								<li><span class="qdate">2017-03-19</span>你请了<span class="black">病假</span>，请假时间是<span class="black">三小时</span></li>
+							</ul>
+							<a href="javascript:void(0);" class="more">更多</a>
+							</div>
+							<div class="qlistb">
+								<h4>温馨提示</h4>
+							<ul>
+								<li>1.每月有2个小时带薪小时假</li>
+								<li>2.普通事假最小单位为2个小时</li>
+								<li>3.未满2小时的事假按2小时计算</li>
+								<li>4.超出整点小时部分，按取整1小时计算</li>
+								<li>5.每季度可请6天事假，按实际天数扣除请假日薪资</li>
+							</ul>
+							</div>
+						</div>
+						</div>
+						
+					</div>
 					</div>
 				</div>
 			</div>
@@ -78,14 +100,28 @@
 
 		<script src="node_modules/vue/dist/vue.min.js"></script>
 		<script src="node_modules/vue-router/dist/vue-router.js"></script>
-		<script src="node_modules/element-ui/lib/index.js"></script>
+		<script src="//unpkg.com/element-ui@1.3.2/lib/index.js"></script>
 		<script type="text/javascript">
 			new Vue({
 				el: '#bo',
 				data: {
 					isxiansi: false,
-					list: ['请假', '请假审核', '历史记录']
-				}
+					isselect:false,
+					lelse:'其它',
+					color1:true,
+					value1:'',
+					value2:'',
+					color2:false,
+					list: ['请假', '请假审核', '历史记录'],
+					list2:['例假','体检假','紧急事假','重大疾病假','婚假','产假','流产假','丧假','带薪年假',]
+				},
+			methods:{
+				selectup:function(e){
+					this.color1=!this.color1;
+					this.color2=!this.color2;
+				},
+				
+			}
 			});
 		</script>
 	</body>
