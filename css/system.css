@@ -139,6 +139,7 @@ s}
 	box-sizing: border-box;
 	padding: 8px 13px;
 	height: 30px;
+	color:#333;
 	position: absolute;
 }
 .minimize{
@@ -167,9 +168,11 @@ s}
 	border-radius: 0 4px 0 0;
 }
 .close:hover{
+	color: #fef3f0;
 	background: #f2613d;
 }
 .close:active{
+	color: #fef3f0;
 background: #d95736;
 }
 #ces{
