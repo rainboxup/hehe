@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+
+		<link rel="stylesheet" type="text/css" href="node_modules/element-ui/lib/theme-default/index.css">
+		<link rel="stylesheet" type="text/css" href="css/commonality.css" />
+		<link rel="stylesheet" type="text/css" href="css/system.css" />
+
+	</head>
+
+	<body>
+		<div id="bo">
+
+			<div class="nav">
+				<a href="#"><img src="img/头像.jpg" alt="" /></a>
+				<a href="#">
+					<div class="iconfont fun">&#xe632;</div>
+				</a>
+			</div>
+			<div class="content">
+				<div class="list">
+					<div class="search"><input type="text" placeholder="搜索" id="" value="" />
+						<a href="#" class="iconfont">&#xe6f1;</a>
+					</div>
+					<ul class="clist">
+						<li>
+							<a href="#"><span class="iconfont icon">&#xe6a3;</span>图书</a>
+						</li>
+						<li>
+							<a href="#"><span class="iconfont icon">&#xe600;</span>文章</a>
+						</li>
+						<li class="lastli" id="list">
+							<a href="#" @click="isxiansi=!isxiansi"><span class="iconfont icon">&#xe691;</span>请假<span class="iconfont bicon">&#xe6b4;</span></a>
+							<ul v-if="isxiansi">
+								<li v-for="i in list">
+									<a href="#" v-text='i'></a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="particulars">
+					<div id="zj2">
+						<div class="title">
+							<h1>请假审核</h1>
+							<a href="javascript:void(0);" class="iconfont minimize">&#xe6f3;</a>
+							<a href="javascript:void(0);" class="iconfont Windowed">&#xe6fe;</a>
+							<a href="javascript:void(0);" class="iconfont close">&#xe6e6;</a>
+						</div>
+						<div class="auditj clearfix">
+							<div class="audchunk clearfix">
+								<a class="fr popup" href="javascript:void(0);">添加请假人员</a>
+								<h3>今天</h3>
+								<div class="chunk" v-for="i in table1">
+									<ul>
+										<li><span class="fl">姓名</span><span class="chtent" v-text='i.name'></span></li>
+										<li><span class="fl">开始时间</span><span class="chtent" v-text='i.stime'>1</span></li>
+										<li><span class="fl">结束时间</span><span class="chtent" v-text='i.etime'>1</span></li>
+										<li><span class="fl">请假时长</span><span class="chtent" v-text='i.duration'>1</span></li>
+										<li><span class="fl">请假原因</span><span class="chtent chtents" v-text='i.cause'>1</span></li>
+										<li>
+											<a class="fr pass" href="javascript:void(0);">通过</a>
+											<a class="fr refuse" href="javascript:void(0);">拒绝</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="audchunk clearfix">
+								<h3>昨天</h3>
+								<div class="chunk" v-for="i in table2">
+									<ul>
+										<li><span class="fl">姓名</span><span class="chtent" v-text='i.name'></span></li>
+										<li><span class="fl">开始时间</span><span class="chtent" v-text='i.stime'>1</span></li>
+										<li><span class="fl">结束时间</span><span class="chtent" v-text='i.etime'>1</span></li>
+										<li><span class="fl">请假时长</span><span class="chtent" v-text='i.duration'>1</span></li>
+										<li><span class="fl">请假原因</span><span class="chtent chtents" v-text='i.cause'>1</span></li>
+										<li>
+											<a class="fr pass" href="javascript:void(0);">通过</a>
+											<a class="fr refuse" href="javascript:void(0);">拒绝</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="audchunk clearfix">
+								<h3>更早</h3>
+								<div class="chunk" v-for="i in table3">
+									<ul>
+										<li><span class="fl">姓名</span><span class="chtent" v-text='i.name'></span></li>
+										<li><span class="fl">开始时间</span><span class="chtent" v-text='i.stime'>1</span></li>
+										<li><span class="fl">结束时间</span><span class="chtent" v-text='i.etime'>1</span></li>
+										<li><span class="fl">请假时长</span><span class="chtent" v-text='i.duration'>1</span></li>
+										<li><span class="fl">请假原因</span><span class="chtent chtents" v-text='i.cause'>1</span></li>
+										<li>
+											<a class="fr pass" href="javascript:void(0);">通过</a>
+											<a class="fr refuse" href="javascript:void(0);">拒绝</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="powindow">
+								<a href="javascript:void(0);" class="iconfont closes">&#xe6e6;</a>
+								<h3>添加请假人员</h3>
+								<div class="powindow-tent">
+									<el-form :label-position="labelPosition" label-width="80px" :model="formLabelAlign">
+										<el-form-item label="姓名" label-width='72px'>
+											<el-input class='input-height' v-model="formLabelAlign.name"></el-input>
+										</el-form-item>
+										<el-form-item label="开始时间" label-width='72px'>
+											<el-date-picker class='label_width input-height' v-model="formLabelAlign.value1" type="datetime"></el-date-picker>
+										</el-form-item>
+										<el-form-item label="结束时间"  label-width='72px'>
+											<el-date-picker class='label_width input-height' v-model="formLabelAlign.value2" type="datetime"></el-date-picker>
+										</el-form-item>
+										<el-form-item label="请假类型" label-width='72px'>
+											<el-input class='input-height' v-model="formLabelAlign.type"></el-input>
+										</el-form-item>
+										<el-form-item label="活动形式" label-width='72px'>
+											<textarea class="textarea_set"></textarea>
+										</el-form-item>
+									</el-form>
+									<div class="powindowif">
+										<a class="powbtn1" href="javascript:void(0);">取消</a>
+										<a class="powbtn2" href="javascript:void(0);">确定</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="node_modules/vue/dist/vue.min.js"></script>
+		<script src="node_modules/vue-router/dist/vue-router.js"></script>
+		<script src="node_modules/element-ui/lib/index.js"></script>
+		<script type="text/javascript">
+			new Vue({
+				el: '#bo',
+				data: {
+					isxiansi: false,
+					isselect: false,
+					lelse: '其它',
+					color1: true,
+					value1: '', //开始时间
+					value2: '', //结束时间
+					color2: false,
+					labelPosition: 'left',
+					formLabelAlign: {
+						name: '',
+						value1: '',
+						value2: '',
+						type: '',
+						desc: ''
+					},
+					list: ['请假', '请假审核', '历史记录'],
+					list2: ['例假', '体检假', '紧急事假', '重大疾病假', '婚假', '产假', '流产假', '丧假', '带薪年假', ],
+					table1: [{ name: '艾琳', stime: '04-24 09:00', etime: '04-24 18:00', duration: '1天', cause: '(事假)今天准备去参加一位朋友的婚礼，呵呵呵呵' },
+						{ name: '隔壁老王', stime: '04-24 13:00', etime: '04-24 18:00', duration: '半天', cause: '(事假)今天有事' },
+						{ name: '邻居老李', stime: '04-24 09:00', etime: '04-25 18:00', duration: '2天', cause: '(病假)生病了' },
+					],
+					table2: [{ name: '隔壁老王', stime: '04-24 13:00', etime: '04-24 18:00', duration: '半天', cause: '(事假)今天有事' },
+						{ name: '邻居老李', stime: '04-24 09:00', etime: '04-25 18:00', duration: '2天', cause: '(病假)生病了' }, ],
+					table3: [{ name: '艾琳', stime: '04-24 09:00', etime: '04-24 18:00', duration: '1天', cause: '(事假)今天准备去参加一位朋友的婚礼，呵呵呵呵' },
+						{ name: '隔壁老王', stime: '04-24 13:00', etime: '04-24 18:00', duration: '半天', cause: '(事假)今天有事' },
+						{ name: '邻居老李', stime: '04-24 09:00', etime: '04-25 18:00', duration: '2天', cause: '(病假)生病了' },
+					],
+
+				},
+				methods: {
+					selectup: function(e) {
+						this.color1 = !this.color1;
+						this.color2 = !this.color2;
+					},
+
+				}
+			});
+		</script>
+	</body>
+
+</html>

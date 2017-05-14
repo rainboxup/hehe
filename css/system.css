@@ -35,6 +35,12 @@ a{
 .fun:hover{
 	color: #0095F2;
 }
+.fr{
+	float: right;
+}
+.fl{
+	float: left;
+}
 .content{
 	border-radius: 0 4px 4px 0;
 	height: 608px;
@@ -129,6 +135,7 @@ s}
 }
 .title>h1{
 	font-size: 20px;
+	color: #111;
 	font-weight: 500;
 }
 .title>a{
@@ -321,3 +328,179 @@ background: #d95736;
 	padding-top: 2px;
 }
 /*组件一 E*/
+/*组件二 B*/
+#zj2{
+	position: relative;
+}
+.auditj{
+	padding: 16px 0px 16px 8px;
+	overflow: auto;
+	height: 507px;
+}
+.auditj::-webkit-scrollbar-thumb {
+    background-color: #d9d9d9;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.auditj::-webkit-scrollbar {
+    width: 8px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.audchunk{
+}
+.audchunk>h3{
+	font-weight: 500;
+	font-size: 14px;
+	color: #111;
+	padding-left: 9px;
+}
+.chunk{
+	float: left;
+	box-sizing: border-box;
+	padding: 7px 27px 2px 15px;
+	margin: 10px 8px 16px;
+	background: #ededed;
+	width: 324px;
+	height: 158px;
+	font-size: 12px;
+	color: #666;
+}
+.chunk li{
+	line-height: 25px;
+}
+.chunk li span{
+	display: block;
+}
+.chtent{
+	color: #333;
+	padding-left: 72px;	
+	}
+.chtents{
+	white-space:nowrap; 
+	overflow:hidden;
+	 text-overflow:ellipsis;
+	 padding-left: 25px;
+}
+.popup{
+	margin-right: 20px;
+	color: #666666;
+	font-size: 12px;
+}
+.popup:hover{
+	color: #4c4c4c;
+}
+.pass{
+	margin-left: 25px;
+	color: #f23000;
+}
+.pass:hover{
+	color: #d92b00;
+}
+.refuse{
+	color: #0095f2;
+}
+.refuse:hover{
+	color: #0086d9;
+}
+/*弹窗*/
+.powindow{
+	position: absolute;
+	top: 146px;
+	left: 31px;
+	border-radius: 4px;
+	box-sizing: border-box;
+	height: 367px;
+	width: 400px;
+	border: 1px solid #bfbfbf;
+	background: #fff;
+	box-shadow:  0 0 8px #cacaca;
+}
+.powindow h3{
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	color: #111;
+	font-weight: 500;
+	background: #ededed;
+	border-bottom: 1px solid #bfbfbf;
+}
+.closes{
+	padding: 12px 15px;
+	position: absolute;
+	top: 0;
+	right: 4px;
+}
+/*.closes:hover{
+	color: #fef3f0;
+	background: #f2613d;
+}
+.closes:active{
+	color: #fef3f0;
+background: #d95736;
+}*/
+.powindow-tent{
+	padding: 20px 63px 0 64px;
+}
+.el-form-item{
+	margin-bottom: 4px;
+}
+.label_width{
+	width: 100% !important;
+}
+.input-height{
+	height: 28px;
+}
+.input-height input{
+	height: 28px;
+	border-radius: 2px;
+}
+.textarea_set{
+	width: 200px;
+	height: 56px;
+	border-radius: 2px;
+	resize: none;
+	box-sizing: border-box;
+	outline: none;
+	overflow: hidden;
+	margin-top: 5px;
+	color: #1f2d3d;
+	padding: 5px;
+	border: 1px solid #bfcbd9;
+}
+.textarea_set:hover{
+	border-color: #8391a5;
+}
+.powindowif{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 50px;
+	width: 100%;
+	border-top: 1px solid #e6e6e6;
+	line-height: 50px;
+	text-align: center;
+}
+.powbtn1,.powbtn2{
+	display: inline-block;
+	width: 90px;
+	height: 30px;
+	font-size: 14px;
+	line-height: 30px;
+	box-sizing: border-box;
+	border-radius: 4px;
+	margin: 0 7px;
+}
+.powbtn1{
+	border:1px solid #999999;
+	color: #666;
+	}
+
+.powbtn2{
+	background: #0095f2;
+	color: #fff;
+}
+/*组件二 E*/
