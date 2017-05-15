@@ -3,7 +3,7 @@ html,body,h1,h2,h3,h4,input,p,ul{
     padding: 0;
 }
 body{
-	margin: 150px auto;
+	margin: 100px auto;
 }
 ul,ol,li{
 	list-style: none;

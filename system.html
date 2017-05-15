@@ -55,9 +55,9 @@
 						<div id="ces" >
 							<div id="fate">
 							<div  :class="{selectup:false,selectupa:true}" >事假</div>
-							<div  class="selectup2" :class="{selectup:color1,selectupa:color2}">病假</div>
-							<div :class="{selectup:color1,selectupa:color2}" @click="isselect=!isselect"><span v-text='lelse'></span><i class="iconfont iconx">&#xe68f;</i>
-								<ul v-if='isselect'>
+							<div class="selectup2" :class="{selectup:color1,selectupa:color2}">病假</div>
+							<div :class="{selectup:color1,selectupa:color2}" id="select" @click="isselect=!isselect"><span v-text='lelse' ref="isize"></span><i class="iconfont iconx">&#xe68f;</i>
+								<ul v-if='isselect' @click='size'>
 									<li v-for="i in list2" v-text='i' @click='lelse=i'></li>
 								</ul>
 
@@ -71,11 +71,7 @@
 							<div class="qlisttop">
 								<h4>请假记录</h4>
 							<ul>
-								<li><span class="qdate">2017-03-20</span>你请了<span class="black">病假</span>，请假时间是<span class="black">1天</span></li>
-								<li><span class="qdate">2017-03-19</span>你请了<span class="black">病假</span>，请假时间是<span class="black">三小时</span></li>
-								<li><span class="qdate">2017-03-19</span>你请了<span class="black">病假</span>，请假时间是<span class="black">三小时</span></li>
-								<li><span class="qdate">2017-03-19</span>你请了<span class="black">病假</span>，请假时间是<span class="black">三小时</span></li>
-								<li><span class="qdate">2017-03-19</span>你请了<span class="black">病假</span>，请假时间是<span class="black">三小时</span></li>
+								<li v-for='i in leave'><span class="qdate" v-text='i.date'></span>你请了<span class="black" v-text='i.disease'></span>，请假时间是<span class="black" v-text='i.redate'></span></li>
 							</ul>
 							<a href="javascript:void(0);" class="more">更多</a>
 							</div>
@@ -113,14 +109,28 @@
 					value2:'',
 					color2:false,
 					list: ['请假', '请假审核', '历史记录'],
-					list2:['例假','体检假','紧急事假','重大疾病假','婚假','产假','流产假','丧假','带薪年假',]
+					list2:['例假','体检假','紧急事假','重大疾病假','婚假','产假','流产假','丧假','带薪年假',],
+					leave:[
+					{date:'2017-03-20',disease:'病假',redate:'1天'},
+					{date:'2017-03-12',disease:'病假',redate:'2天'},
+					{date:'2017-02-24',disease:'事假',redate:'1天'},
+					{date:'2017-02-23',disease:'咧假',redate:'1天'},
+					{date:'2017-02-14',disease:'事假',redate:'2小时'},
+					]
 				},
 			methods:{
 				selectup:function(e){
-					this.color1=!this.color1;
-					this.color2=!this.color2;
+					
 				},
-
+				size:function(){
+					var ize=this.$refs.isize.innerText;
+					if(ize.length > 4){
+						(this.$refs.isize).style.fontSize='12px';
+					}else{
+						(this.$refs.isize).style.fontSize='14px';
+					}
+				}
+				
 			}
 			});
 		</script>

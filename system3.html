@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+
+		<link rel="stylesheet" type="text/css" href="node_modules/element-ui/lib/theme-default/index.css">
+		<link rel="stylesheet" type="text/css" href="css/commonality.css" />
+		<link rel="stylesheet" type="text/css" href="css/system.css" />
+
+	</head>
+
+	<body>
+		<div id="bo">
+
+			<div class="nav">
+				<a href="#"><img src="img/头像.jpg" alt="" /></a>
+				<a href="#">
+					<div class="iconfont fun">&#xe632;</div>
+				</a>
+			</div>
+			<div class="content">
+				<div class="list">
+					<div class="search"><input type="text" placeholder="搜索" id="" value="" />
+						<a href="#" class="iconfont">&#xe6f1;</a>
+					</div>
+					<ul class="clist">
+						<li>
+							<a href="#"><span class="iconfont icon">&#xe6a3;</span>图书</a>
+						</li>
+						<li>
+							<a href="#"><span class="iconfont icon">&#xe600;</span>文章</a>
+						</li>
+						<li class="lastli" id="list">
+							<a href="#" @click="isxiansi=!isxiansi"><span class="iconfont icon">&#xe691;</span>请假<span class="iconfont bicon">&#xe6b4;</span></a>
+							<ul v-if="isxiansi">
+								<li v-for="i in list">
+									<a href="#" v-text='i'></a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="particulars">
+					<div id="zj3">
+						<div class="title">
+							<h1>历史请假记录</h1>
+							<a href="javascript:void(0);" class="iconfont minimize">&#xe6f3;</a>
+							<a href="javascript:void(0);" class="iconfont Windowed">&#xe6fe;</a>
+							<a href="javascript:window.opener=null;window.close()" class="iconfont close">&#xe6e6;</a>
+						</div>
+						<div class="record">
+							<div class="record1">
+								<span class="recordmg">
+								 <el-select v-model="opvalue1" class='rtly' placeholder="近一个月记录">
+						    		<el-option v-for="item in options1" class='rtlyup' :key="item.value" :label="item.label" :value="item.value">
+    							</el-option>
+								</span>
+								<span class="recordmg">
+								 <el-select v-model="opvalue2" class='rtly' placeholder="全部类型">
+						    		<el-option v-for="item in options2" class='rtlyup' :key="item.value" :label="item.label" :value="item.value">
+    							</el-option>
+								</span>
+								<span class="recordmg">
+								 <el-select v-model="opvalue3" class='rtly' placeholder="全部人员">
+						    		<el-option v-for="item in options1" class='rtlyup' :key="item.value" :label="item.label" :value="item.value">
+    							</el-option>
+								</span>
+								<span>
+								 <el-input placeholder="搜索" class='setinput' icon="search" v-model="opvalue4" :on-icon-click="handleIconClick">
+								</span>
+							</div>
+							<div class="rdrecord">
+								<table class="table"  cellspacing="0">
+									<tr>
+										<th class="w1">时间</th>
+										<th class="w2">姓名</th>
+										<th class="w3">开始时间</th>
+										<th class="w4">结束时间</th>
+										<th class="w5">时长</th>
+										<th class="w6">类型</th>
+										<th class="w7">审批</th>
+										<th class="w8">状态</th>
+									</tr>
+									<tr v-for='i in tabelr'>
+										<td v-text='i.date'>04-24</td>
+										<td v-text='i.name'>艾琳</td>
+										<td v-text='i.stime'>04-24 09:00</td>
+										<td v-text='i.etime'>04-24 18:00</td>
+										<td v-text='i.duration'>一天</td>
+										<td v-text='i.cause'>事假</td>
+										<td v-text='i.datea'>王鹏</td>
+										<td :class='i.clas' v-text='i.state'>已通过</td>
+										
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="node_modules/vue/dist/vue.min.js"></script>
+		<script src="node_modules/vue-router/dist/vue-router.js"></script>
+		<script src="node_modules/element-ui/lib/index.js"></script>
+		<script type="text/javascript">
+			Date.prototype.Format = function(fmt) { //时间格式化
+				var o = {
+					"M+": this.getMonth() + 1, //月份 
+					"d+": this.getDate(), //日 
+					"h+": this.getHours(), //小时 
+					"m+": this.getMinutes(), //分 
+					"s+": this.getSeconds(), //秒 
+					"q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+					"S": this.getMilliseconds() //毫秒 
+				};
+				if(/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+				for(var k in o)
+					if(new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+				return fmt;
+			}
+
+			new Vue({
+				el: '#bo',
+				data: {
+					isxiansi: false,
+					isselect: false,
+					lelse: '其它',
+					color1: true,
+					value1: '', //开始时间
+					value2: '', //结束时间
+					color2: false,
+					labelPosition: 'left',
+					ispowindow: false,
+					formLabelAlign: {
+						name: '',
+						value1: '',
+						value2: '',
+						type: '',
+						desc: ''
+					},
+					list: ['请假', '请假审核', '历史记录'],
+					list2: ['例假', '体检假', '紧急事假', '重大疾病假', '婚假', '产假', '流产假', '丧假', '带薪年假', ],
+					table1: [{
+						name: '艾琳',
+						stime: '04-24 09:00',
+						etime: '04-24 18:00',
+						duration: '1天',
+						cause: '(事假)今天准备去参加一位朋友的婚礼，呵呵呵呵'
+					}, {
+						name: '隔壁老王',
+						stime: '04-24 13:00',
+						etime: '04-24 18:00',
+						duration: '半天',
+						cause: '(事假)今天有事'
+					}, {
+						name: '邻居老李',
+						stime: '04-24 09:00',
+						etime: '04-25 18:00',
+						duration: '2天',
+						cause: '(病假)生病了'
+					}, ],
+					table2: [{
+						name: '隔壁老王',
+						stime: '04-24 13:00',
+						etime: '04-24 18:00',
+						duration: '半天',
+						cause: '(事假)今天有事'
+					}, {
+						name: '邻居老李',
+						stime: '04-24 09:00',
+						etime: '04-25 18:00',
+						duration: '2天',
+						cause: '(病假)生病了'
+					}, ],
+					table3: [{
+						name: '艾琳',
+						stime: '04-24 09:00',
+						etime: '04-24 18:00',
+						duration: '1天',
+						cause: '(事假)今天准备去参加一位朋友的婚礼，呵呵呵呵'
+					}, {
+						name: '隔壁老王',
+						stime: '04-24 13:00',
+						etime: '04-24 18:00',
+						duration: '半天',
+						cause: '(事假)今天有事'
+					}, {
+						name: '邻居老李',
+						stime: '04-24 09:00',
+						etime: '04-25 18:00',
+						duration: '2天',
+						cause: '(病假)生病了'
+					}, ],
+					options1: [{
+						value: '选项1',
+						label: '近一个月记录'
+					}, {
+						value: '选项2',
+						label: '近三个月记录'
+					}, {
+						value: '选项3',
+						label: '近六个月记录'
+					}, {
+						value: '选项4',
+						label: '近半年记录'
+					}, {
+						value: '选项5',
+						label: '近一年记录'
+					}, {
+						value: '选项6',
+						label: '近三年记录'
+					}],
+					options2: [{ value: '选项1', label: '事假' },{ value: '选项2', label: '病假' },{ value: '选项3', label: '例假' },{ value: '选项4', label: '体检假' }, { value: '选项5', label: '紧急事假' }, { value: '选项6', label: '重大疾病假' }, { value: '选项7', label: '婚假' }, { value: '选项8', label: '产假' },{ value: '选项9', label: '流产假' },{ value: '选项10', label: '产假' },{ value: '选项11', label: '丧假' },{ value: '选项11', label: '带薪年假' }], 
+//					options2: ['事假', '病假', '例假', '体检假', '紧急事假', '重大疾病假', '婚假', '产假', '流产假', '丧假', '带薪年假'],
+					opvalue1: '',
+					opvalue2: '',
+					opvalue3: '',
+					opvalue4: '',
+					tabelr:[
+					{date:'04-24',name:'艾琳', stime: '04-24 09:00', etime: '04-25 18:00', duration: '2天', cause: '事假',datea:'王鹏',clas:'thcolor1',state:'已通过'},
+					{date:'04-24',name:'王二', stime: '04-24 09:00', etime: '04-24 18:00', duration: '1天', cause: '事假',datea:'张永和',clas:'thcolor2',state:'请假中'},
+					{date:'04-24',name:'张三', stime: '04-24 09:00', etime: '04-24 18:00', duration: '1天', cause: '事假',datea:'李白',clas:'thcolor3',state:'已拒绝'},
+					{date:'04-24',name:'李四', stime: '04-24 09:00', etime: '04-24 18:00', duration: '1天', cause: '事假',datea:'刘备',clas:'thcolor1',state:'已通过'},
+					{date:'04-24',name:'王五', stime: '04-24 09:00', etime: '04-24 18:00', duration: '1天', cause: '事假',datea:'赵云',clas:'thcolor3',state:'已拒绝'},
+					{date:'04-24',name:'赵六', stime: '04-24 09:00', etime: '04-24 18:00', duration: '1天', cause: '事假',datea:'灰灰',clas:'thcolor4',state:'已过期'},
+					]
+				},
+				methods: {
+					pushpow: function() {
+						var duration = '一天';
+						var value1 = (this.formLabelAlign.value1).Format("MM-dd hh:mm");
+						var value2 = (this.formLabelAlign.value2).Format("MM-dd hh:mm");
+						var h = 3606000; //一小时（容差度六秒）
+						var qdate = ((this.formLabelAlign.value2) - (this.formLabelAlign.value1)) / h;
+						if(qdate => 1 && qdate <= 9) {
+							duration = Math.ceil(qdate) + '小时';
+						} else if(qdate > 9) {
+							duration = Math.ceil(qdate / 9) + '天';
+						}
+						var add = {
+							name: this.formLabelAlign.name,
+							stime: value1,
+							etime: value2,
+							duration: duration,
+							cause: '(' + (this.formLabelAlign.type) + ')' + (this.formLabelAlign.desc)
+						};
+						this.table1.unshift(add);
+						this.ispowindow = !this.ispowindow;
+						this.formLabelAlign.name='';
+						this.formLabelAlign.value1='';
+						this.formLabelAlign.value2='';
+						this.formLabelAlign.type='';
+						this.formLabelAlign.desc='';
+					},
+					handleIconClick: function(ev) {
+						//   					 console.log(ev);
+					},
+					selectup: function(e) { //没用
+						/*this.color1 = !this.color1;
+						this.color2 = !this.color2;*/
+					},
+
+				}
+			});
+		</script>
+	</body>
+
+</html>

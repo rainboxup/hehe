@@ -49,11 +49,11 @@
 							<h1>请假审核</h1>
 							<a href="javascript:void(0);" class="iconfont minimize">&#xe6f3;</a>
 							<a href="javascript:void(0);" class="iconfont Windowed">&#xe6fe;</a>
-							<a href="javascript:void(0);" class="iconfont close">&#xe6e6;</a>
+							<a href="javascript:window.opener=null;window.close()"  class="iconfont close">&#xe6e6;</a>
 						</div>
 						<div class="auditj clearfix">
 							<div class="audchunk clearfix">
-								<a class="fr popup" href="javascript:void(0);">添加请假人员</a>
+								<a class="fr popup" @click='ispowindow=!ispowindow' href="javascript:void(0);">添加请假人员</a>
 								<h3>今天</h3>
 								<div class="chunk" v-for="i in table1">
 									<ul>
@@ -101,8 +101,8 @@
 									</ul>
 								</div>
 							</div>
-							<div class="powindow">
-								<a href="javascript:void(0);" class="iconfont closes">&#xe6e6;</a>
+							<div class="powindow" v-if='ispowindow'>
+								<a href="javascript:void(0);" @click='ispowindow=!ispowindow' class="iconfont closes">&#xe6e6;</a>
 								<h3>添加请假人员</h3>
 								<div class="powindow-tent">
 									<el-form :label-position="labelPosition" label-width="80px" :model="formLabelAlign">
@@ -118,13 +118,13 @@
 										<el-form-item label="请假类型" label-width='72px'>
 											<el-input class='input-height' v-model="formLabelAlign.type"></el-input>
 										</el-form-item>
-										<el-form-item label="活动形式" label-width='72px'>
-											<textarea class="textarea_set"></textarea>
+										<el-form-item label="请假原因"  label-width='72px'>
+											<textarea class="textarea_set" v-model="formLabelAlign.desc"></textarea>
 										</el-form-item>
 									</el-form>
 									<div class="powindowif">
-										<a class="powbtn1" href="javascript:void(0);">取消</a>
-										<a class="powbtn2" href="javascript:void(0);">确定</a>
+										<a class="powbtn1" @click='ispowindow=!ispowindow' href="javascript:void(0);">取消</a>
+										<a class="powbtn2" @click='pushpow' href="javascript:void(0);">确定</a>
 									</div>
 								</div>
 							</div>
@@ -138,6 +138,23 @@
 		<script src="node_modules/vue-router/dist/vue-router.js"></script>
 		<script src="node_modules/element-ui/lib/index.js"></script>
 		<script type="text/javascript">
+						Date.prototype.Format = function (fmt) { //author: meizz 
+    var o = {
+        "M+": this.getMonth() + 1, //月份 
+        "d+": this.getDate(), //日 
+        "h+": this.getHours(), //小时 
+        "m+": this.getMinutes(), //分 
+        "s+": this.getSeconds(), //秒 
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+        "S": this.getMilliseconds() //毫秒 
+    };
+    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+}
+						
+						
 			new Vue({
 				el: '#bo',
 				data: {
@@ -149,12 +166,13 @@
 					value2: '', //结束时间
 					color2: false,
 					labelPosition: 'left',
+					ispowindow:false,
 					formLabelAlign: {
 						name: '',
 						value1: '',
 						value2: '',
 						type: '',
-						desc: ''
+						desc:''
 					},
 					list: ['请假', '请假审核', '历史记录'],
 					list2: ['例假', '体检假', '紧急事假', '重大疾病假', '婚假', '产假', '流产假', '丧假', '带薪年假', ],
@@ -171,13 +189,38 @@
 
 				},
 				methods: {
-					selectup: function(e) {
+					pushpow:function(){
+						var duration='一天';
+						var value1=(this.formLabelAlign.value1).Format("MM-dd hh:mm");
+						var value2=(this.formLabelAlign.value2).Format("MM-dd hh:mm");
+						var h=3600600;//一小时（有容差）
+						var qdate=((this.formLabelAlign.value2)-(this.formLabelAlign.value1))/h;
+						if(qdate >= 1 && qdate <= 9){
+							duration=Math.ceil(qdate)+'小时';
+						}else if (qdate >= 24) {
+							duration=Math.ceil(qdate/24)+'天';
+						} else if(qdate > 9 ){
+							duration=Math.ceil(qdate/9)+'天';//有问题
+						}
+						var add={name:this.formLabelAlign.name , stime: value1, etime:value2 , duration: duration, cause:'('+(this.formLabelAlign.type)+')'+(this.formLabelAlign.desc)};
+						this.table1.unshift(add);
+						this.ispowindow=!this.ispowindow;
+						this.formLabelAlign.name='';
+						this.formLabelAlign.value1='';
+						this.formLabelAlign.value2='';
+						this.formLabelAlign.type='';
+						this.formLabelAlign.desc='';
+						
+					},
+					selectup: function(e) {//没用
 						this.color1 = !this.color1;
 						this.color2 = !this.color2;
 					},
 
 				}
 			});
+			
+
 		</script>
 	</body>
 
