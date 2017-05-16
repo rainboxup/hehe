@@ -193,7 +193,7 @@
 						var duration='一天';
 						var value1=(this.formLabelAlign.value1).Format("MM-dd hh:mm");
 						var value2=(this.formLabelAlign.value2).Format("MM-dd hh:mm");
-						var h=3600600;//一小时（有容差）
+						var h=3600500;//一小时（有容差）
 						var qdate=((this.formLabelAlign.value2)-(this.formLabelAlign.value1))/h;
 						if(qdate >= 1 && qdate <= 9){
 							duration=Math.ceil(qdate)+'小时';

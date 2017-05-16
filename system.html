@@ -62,8 +62,8 @@
 								</ul>
 
 							</div>
-									<el-date-picker class='bdate' v-model="value1" type="datetime" placeholder="选择开始时间"> </el-date-picker>
-									<el-date-picker class='edate' v-model="value2" type="datetime" placeholder="选择结束时间"> </el-date-picker>
+									<el-date-picker class='bdate' format='yyyy-MM-dd HH:00:00' v-model="value1" type="datetime" placeholder="选择开始时间"> </el-date-picker>
+									<el-date-picker class='edate' format='yyyy-MM-dd HH:00:00' v-model="value2" type="datetime" placeholder="选择结束时间"> </el-date-picker>
 									<textarea class="multi-line" placeholder="请输入请假原因（事假可不填）"></textarea>
 									<a href="javascript:void(0)" class="submit">提交</a>
 						</div>
