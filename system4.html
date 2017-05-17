@@ -37,7 +37,7 @@
 							<a href="#" @click="isxiansi=!isxiansi"><span class="iconfont icon">&#xe691;</span>请假<span class="iconfont bicon">&#xe6b4;</span></a>
 							<ul v-if="isxiansi">
 								<li v-for="i in list">
-									<a href="#" v-text='i'></a>
+									<a href="JavaScript:void(0);" v-text='i'></a>
 								</li>
 							</ul>
 						</li>
@@ -52,13 +52,36 @@
 							<a href="javascript:window.opener=null;window.close()" class="iconfont close">&#xe6e6;</a>
 						</div>
 						<div class="group">
+							<a href="javascript:void(0);" class="fr redact" @click='compilem' v-text='compile'></a>
 							<ul>
 								<li v-for="i in groupup" v-bind:style="{ background: i.color}">
 									<a href="javascript:void(0);" v-text='i.name'>总裁办</a>
-									<span class="deleteli iconfont">&#xe6e6;</span>
+									<span class="deleteli iconfont" v-if='showhiad'>&#xe6e6;</span>
 								</li>
-								<li class="compile"><a href="javascript:void(0);">+</a></li>
+								<li class="compile">
+									<a href="javascript:void(0);" @click='adddiamonds=!adddiamonds'>+</a>
+								</li>
 							</ul>
+						</div>
+						<div class="powindow addbk" v-show='adddiamonds'>
+							<a href="javascript:void(0);" @click='adddiamonds=!adddiamonds' class="iconfont closes">&#xe6e6;</a>
+							<h3>添加请假小组人员</h3>
+							<div class="powindow-tent dow-twidth">
+								<el-form :label-position="labelPosition" label-width="80px" :model="formLabelAlign">
+									<el-form-item label="请假小组" label-width='83px' class='iheight'>
+										<el-input class='input-height' v-model="formLabelAlign.name"></el-input>
+									</el-form-item>
+									<el-form-item label="第二负责人" label-width='83px' class='innheight'>
+										<el-select v-model="opvalue1" class='addchag' placeholder="">
+											<el-option v-for="item in options1" class='rtlyup' :key="item.value" :label="item.label" :value="item.value"> </el-option>
+										</el-select>
+									</el-form-item>
+								</el-form>
+								<div class="powindowif">
+									<a class="powbtn1" @click='adddiamonds=!adddiamonds' href="javascript:void(0);">取消</a>
+									<a class="powbtn2" @click='pushdiamonds' href="javascript:void(0);">确定</a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -176,47 +199,204 @@
 						value: '选项6',
 						label: '近三年记录'
 					}],
-					options2: [{ value: '选项1', label: '事假' },{ value: '选项2', label: '病假' },{ value: '选项3', label: '例假' },{ value: '选项4', label: '体检假' }, { value: '选项5', label: '紧急事假' }, { value: '选项6', label: '重大疾病假' }, { value: '选项7', label: '婚假' }, { value: '选项8', label: '产假' },{ value: '选项9', label: '流产假' },{ value: '选项10', label: '产假' },{ value: '选项11', label: '丧假' },{ value: '选项11', label: '带薪年假' }], 
-//					options2: ['事假', '病假', '例假', '体检假', '紧急事假', '重大疾病假', '婚假', '产假', '流产假', '丧假', '带薪年假'],
+					options2: [{
+						value: '选项1',
+						label: '事假'
+					}, {
+						value: '选项2',
+						label: '病假'
+					}, {
+						value: '选项3',
+						label: '例假'
+					}, {
+						value: '选项4',
+						label: '体检假'
+					}, {
+						value: '选项5',
+						label: '紧急事假'
+					}, {
+						value: '选项6',
+						label: '重大疾病假'
+					}, {
+						value: '选项7',
+						label: '婚假'
+					}, {
+						value: '选项8',
+						label: '产假'
+					}, {
+						value: '选项9',
+						label: '流产假'
+					}, {
+						value: '选项10',
+						label: '产假'
+					}, {
+						value: '选项11',
+						label: '丧假'
+					}, {
+						value: '选项11',
+						label: '带薪年假'
+					}],
+					//					options2: ['事假', '病假', '例假', '体检假', '紧急事假', '重大疾病假', '婚假', '产假', '流产假', '丧假', '带薪年假'],
 					opvalue1: '',
 					opvalue2: '',
 					opvalue3: '',
 					opvalue4: '',
-					tabelr:[
-					{date:'04-24',name:'艾琳', stime: '04-24 09:00', etime: '04-25 18:00', duration: '2天', cause: '事假',datea:'王鹏',clas:'thcolor1',state:'已通过'},
-					{date:'04-24',name:'王二', stime: '04-24 09:00', etime: '04-24 18:00', duration: '1天', cause: '事假',datea:'张永和',clas:'thcolor2',state:'请假中'},
-					{date:'04-24',name:'张三', stime: '04-24 09:00', etime: '04-24 18:00', duration: '1天', cause: '事假',datea:'李白',clas:'thcolor3',state:'已拒绝'},
-					{date:'04-24',name:'李四', stime: '04-24 09:00', etime: '04-24 18:00', duration: '1天', cause: '事假',datea:'刘备',clas:'thcolor1',state:'已通过'},
-					{date:'04-24',name:'王五', stime: '04-24 09:00', etime: '04-24 18:00', duration: '1天', cause: '事假',datea:'赵云',clas:'thcolor3',state:'已拒绝'},
-					{date:'04-24',name:'赵六', stime: '04-24 09:00', etime: '04-24 18:00', duration: '1天', cause: '事假',datea:'灰灰',clas:'thcolor4',state:'已过期'},
+					tabelr: [{
+							date: '04-24',
+							name: '艾琳',
+							stime: '04-24 09:00',
+							etime: '04-25 18:00',
+							duration: '2天',
+							cause: '事假',
+							datea: '王鹏',
+							clas: 'thcolor1',
+							state: '已通过'
+						},
+						{
+							date: '04-24',
+							name: '王二',
+							stime: '04-24 09:00',
+							etime: '04-24 18:00',
+							duration: '1天',
+							cause: '事假',
+							datea: '张永和',
+							clas: 'thcolor2',
+							state: '请假中'
+						},
+						{
+							date: '04-24',
+							name: '张三',
+							stime: '04-24 09:00',
+							etime: '04-24 18:00',
+							duration: '1天',
+							cause: '事假',
+							datea: '李白',
+							clas: 'thcolor3',
+							state: '已拒绝'
+						},
+						{
+							date: '04-24',
+							name: '李四',
+							stime: '04-24 09:00',
+							etime: '04-24 18:00',
+							duration: '1天',
+							cause: '事假',
+							datea: '刘备',
+							clas: 'thcolor1',
+							state: '已通过'
+						},
+						{
+							date: '04-24',
+							name: '王五',
+							stime: '04-24 09:00',
+							etime: '04-24 18:00',
+							duration: '1天',
+							cause: '事假',
+							datea: '赵云',
+							clas: 'thcolor3',
+							state: '已拒绝'
+						},
+						{
+							date: '04-24',
+							name: '赵六',
+							stime: '04-24 09:00',
+							etime: '04-24 18:00',
+							duration: '1天',
+							cause: '事假',
+							datea: '灰灰',
+							clas: 'thcolor4',
+							state: '已过期'
+						},
 					],
-					groupup:[
-					{name:'总裁办',color:'#476cff'},
-					{name:'项目经理',color:'#4785ff'},
-					{name:'内部系统',color:'#4797ff'},
-					{name:'千图网',color:'#47abff'},
-					{name:'IPS',color:'#47c0ff'},
-					{name:'巧办网',color:'#47d2ff'},
-					{name:'千树网',color:'#47e0ff'},
-					{name:'千广网',color:'#ff7547'},
-					{name:'虎课网',color:'#ff8547'},
-					{name:'拍图网',color:'#ff9447'},
-					{name:'摄图网',color:'#ffa347'},
-					{name:'我图网',color:'#ffb347'},
-					{name:'千库网',color:'#ffc247'},
-					{name:'90设计',color:'#ffd147'},
-					{name:'视达网',color:'#ff4747'},
-					{name:'社交3.0',color:'#ff6547'},
-					]
+					groupup: [{
+							name: '总裁办',
+							color: '#476cff'
+						},
+						{
+							name: '项目经理',
+							color: '#4785ff'
+						},
+						{
+							name: '内部系统',
+							color: '#4797ff'
+						},
+						{
+							name: '千图网',
+							color: '#47abff'
+						},
+						{
+							name: 'IPS',
+							color: '#47c0ff'
+						},
+						{
+							name: '巧办网',
+							color: '#47d2ff'
+						},
+						{
+							name: '千树网',
+							color: '#47e0ff'
+						},
+						{
+							name: '千广网',
+							color: '#ff7547'
+						},
+						{
+							name: '虎课网',
+							color: '#ff8547'
+						},
+						{
+							name: '拍图网',
+							color: '#ff9447'
+						},
+						{
+							name: '摄图网',
+							color: '#ffa347'
+						},
+						{
+							name: '我图网',
+							color: '#ffb347'
+						},
+						{
+							name: '千库网',
+							color: '#ffc247'
+						},
+						{
+							name: '90设计',
+							color: '#ffd147'
+						},
+						{
+							name: '视达网',
+							color: '#ff4747'
+						},
+						{
+							name: '社交3.0',
+							color: '#ff6547'
+						},
+					],
+					showhiad: false,
+					adddiamonds: false,
+					compile: '编辑项目小组',
 				},
 				methods: {
+					compilem: function() {
+						this.showhiad = !this.showhiad;
+						if(this.showhiad == false) {
+							this.compile = '编辑项目小组';
+						} else if(this.showhiad == true) {
+							this.compile = '取消编辑';
+						}
+					},
+					pushdiamonds: function() {
+						//
+						this.adddiamonds = !this.adddiamonds;
+					},
 					pushpow: function() {
 						var duration = '一天';
 						var value1 = (this.formLabelAlign.value1).Format("MM-dd hh:mm");
 						var value2 = (this.formLabelAlign.value2).Format("MM-dd hh:mm");
 						var h = 3600500; //一小时（有容差）
 						var qdate = ((this.formLabelAlign.value2) - (this.formLabelAlign.value1)) / h;
-						if(qdate => 1 && qdate <= 9) {
+						if(qdate >= 1 && qdate <= 9) {
 							duration = Math.ceil(qdate) + '小时';
 						} else if(qdate > 9) {
 							duration = Math.ceil(qdate / 9) + '天';
@@ -230,11 +410,11 @@
 						};
 						this.table1.unshift(add);
 						this.ispowindow = !this.ispowindow;
-						this.formLabelAlign.name='';
-						this.formLabelAlign.value1='';
-						this.formLabelAlign.value2='';
-						this.formLabelAlign.type='';
-						this.formLabelAlign.desc='';
+						this.formLabelAlign.name = '';
+						this.formLabelAlign.value1 = '';
+						this.formLabelAlign.value2 = '';
+						this.formLabelAlign.type = '';
+						this.formLabelAlign.desc = '';
 					},
 					handleIconClick: function(ev) {
 						//   					 console.log(ev);

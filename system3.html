@@ -55,21 +55,22 @@
 							<div class="record1">
 								<span class="recordmg">
 								 <el-select v-model="opvalue1" class='rtly' placeholder="近一个月记录">
-						    		<el-option v-for="item in options1" class='rtlyup' :key="item.value" :label="item.label" :value="item.value">
-    							</el-option>
+						    		<el-option v-for="item in options1" class='rtlyup' :key="item.value" :label="item.label" :value="item.value"> </el-option>
+    							</el-select>
 								</span>
 								<span class="recordmg">
 								 <el-select v-model="opvalue2" class='rtly' placeholder="全部类型">
-						    		<el-option v-for="item in options2" class='rtlyup' :key="item.value" :label="item.label" :value="item.value">
-    							</el-option>
+						    		<el-option v-for="item in options2" class='rtlyup' :key="item.value" :label="item.label" :value="item.value"> </el-option>
+    							</el-select>
 								</span>
 								<span class="recordmg">
 								 <el-select v-model="opvalue3" class='rtly' placeholder="全部人员">
 						    		<el-option v-for="item in options1" class='rtlyup' :key="item.value" :label="item.label" :value="item.value">
     							</el-option>
+    							</el-select>
 								</span>
 								<span>
-								 <el-input placeholder="搜索" class='setinput' icon="search" v-model="opvalue4" :on-icon-click="handleIconClick">
+								 <el-input placeholder="搜索" class='setinput' icon="search" v-model="opvalue4" :on-icon-click="handleIconClick"></el-input>
 								</span>
 							</div>
 							<div class="rdrecord">
@@ -236,7 +237,7 @@
 						var value2 = (this.formLabelAlign.value2).Format("MM-dd hh:mm");
 						var h = 3606000; //一小时（容差度六秒）
 						var qdate = ((this.formLabelAlign.value2) - (this.formLabelAlign.value1)) / h;
-						if(qdate => 1 && qdate <= 9) {
+						if(qdate >= 1 && qdate <= 9) {
 							duration = Math.ceil(qdate) + '小时';
 						} else if(qdate > 9) {
 							duration = Math.ceil(qdate / 9) + '天';

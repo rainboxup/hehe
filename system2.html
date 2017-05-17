@@ -110,10 +110,10 @@
 											<el-input class='input-height' v-model="formLabelAlign.name"></el-input>
 										</el-form-item>
 										<el-form-item label="开始时间" label-width='72px'>
-											<el-date-picker class='label_width input-height' v-model="formLabelAlign.value1" type="datetime"></el-date-picker>
+											<el-date-picker format='yyyy-MM-dd HH:00:00' class='label_width input-height' v-model="formLabelAlign.value1" type="datetime"></el-date-picker>
 										</el-form-item>
 										<el-form-item label="结束时间"  label-width='72px'>
-											<el-date-picker class='label_width input-height' v-model="formLabelAlign.value2" type="datetime"></el-date-picker>
+											<el-date-picker format='yyyy-MM-dd HH:00:00' class='label_width input-height' v-model="formLabelAlign.value2" type="datetime"></el-date-picker>
 										</el-form-item>
 										<el-form-item label="请假类型" label-width='72px'>
 											<el-input class='input-height' v-model="formLabelAlign.type"></el-input>
@@ -193,8 +193,11 @@
 						var duration='一天';
 						var value1=(this.formLabelAlign.value1).Format("MM-dd hh:mm");
 						var value2=(this.formLabelAlign.value2).Format("MM-dd hh:mm");
-						var h=3600500;//一小时（有容差）
+						var h=3601000;//一小时
 						var qdate=((this.formLabelAlign.value2)-(this.formLabelAlign.value1))/h;
+						console.log(this.formLabelAlign.value1)
+						console.log(this.formLabelAlign.value2)
+							console.log(qdate)
 						if(qdate >= 1 && qdate <= 9){
 							duration=Math.ceil(qdate)+'小时';
 						}else if (qdate >= 24) {

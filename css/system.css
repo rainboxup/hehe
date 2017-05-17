@@ -47,7 +47,7 @@ a{
 	width: 100%;
 	border:1px solid #DADADA;
 	border-left: none;
-s}
+}
 .list{
 	float: left;
 	width: 240px;
@@ -301,8 +301,8 @@ background: #d95736;
 }
 .qlist h4{
 	color: 111111;
-	font-size: 14px
-	font-weight: 500;
+	font-size: 14px;
+	font-weight:500;
 }
 .qlist li{
 	padding-top: 16px;
@@ -484,6 +484,7 @@ background: #d95736;
 	bottom: 0;
 	left: 0;
 	height: 50px;
+	background: #f2f2f2;
 	width: 100%;
 	border-top: 1px solid #e6e6e6;
 	line-height: 50px;
@@ -611,7 +612,7 @@ background: #d95736;
 /*组件三 E*/
 /*组件四 B*/
 .group{
-	padding: 20px 0 0 13px;
+	padding: 26px 0 0 13px;
 }
 .group li{
 	position: relative;
@@ -655,6 +656,119 @@ right: -6px;
 .group .compile>a{
 	color: #b2b2b2;
 	line-height: 68px;
-	font-size: 40px;
+	font-size: 62px;
+}
+#zj4{
+	position: relative;
+}
+.iheight label{
+	height: 26px;
+	line-height: 11px;
+}
+.addchag input{
+	height: 28px;
+	border-radius: 2px;
+}
+/*组件内样式*/
+.el-select-dropdown__list {
+    width: 199px;
+    padding: 0;
+}
+.innheight{
+	line-height: 5px;
+}
+.innheight>div>div{
+	width: 199px;
+}
+.addbk{
+	height: 210px;
+}
+.dow-twidth{
+	padding: 20px 58px 0;
+}
+/*组件内样式 E*/
+.redact{
+	position: absolute;
+	right: 38px;
+	top:74px;
 }
 /*组件四 E*/
+/*组件五 B*/
+.details{
+	position: relative;
+	padding: 20px 0 0 20px;
+}
+.details>h2{
+	font-size: 14px;
+	color: #111;
+	padding-bottom: 15px;
+}
+.principal{
+	width: 250px;
+}
+.principal>h3{
+	font-size: 12px;
+	padding-bottom: 12px;
+}
+.principal>span{
+	line-height: 20px;
+}
+.Avatar{
+	display: block;
+	width: 40px;
+	height: 40px;
+	margin-right:10px ;
+	overflow: hidden;
+	border-radius: 4px;
+}
+.Avatar>img{
+	width: 100%;
+}
+.member{
+	padding-top: 30px;
+}
+.member>h3{
+	font-size: 12px;
+	color: #111;
+	padding-bottom: 12px;
+}
+.member>h3>span{
+	font-weight: 500;
+}
+.xmember>li{
+	float: left;
+	width: 40px;
+	height: 40px;
+	margin-right:10px ;
+	line-height: 40px;
+	border-radius: 4px;
+	text-align: center;
+}
+.addxmember{
+	box-sizing: border-box;
+	border: 1px solid #e0e0e0;
+	background: #f6f6f6;
+}
+.addxmember>a{
+	color: #999999;
+	font-size: 12px;
+}
+.fontcolor{
+	color:#999;
+	margin-right: 40px;
+}
+.m-pop-up1{
+	top: 135px;
+}
+.iname{
+	color: #111;
+}
+.dow-padtop{
+	padding-top: 41px;
+}
+.icon-space{
+	padding-right: 5px;
+	position: relative;
+	top: 2px;
+}
+/*组件五 E*/
