@@ -26,27 +26,27 @@
 					<div class="search"><input type="text" placeholder="搜索" id="" value="" />
 						<a href="#" class="iconfont">&#xe6f1;</a>
 					</div>
-					<ul class="clist">
-						<li>
-							<a href="#"><span class="iconfont icon">&#xe6a3;</span>图书</a>
-						</li>
-						<li>
-							<a href="#"><span class="iconfont icon">&#xe600;</span>文章</a>
-						</li>
-						<li class="lastli" id="list">
-							<a href="#" @click="isxiansi=!isxiansi"><span class="iconfont icon">&#xe691;</span>请假<span class="iconfont bicon">&#xe6b4;</span></a>
-							<ul v-if="isxiansi">
-								<li v-for="i in list">
-									<a href="JavaScript:void(0);" v-text='i'></a>
-								</li>
-							</ul>
-						</li>
-					</ul>
+					
+					<el-row class="tac">
+  <el-col :span="8">
+    <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
+    	<el-menu-item index="2"><i class="el-icon-menu iconfont fontleft fontlefti">&#xe6a3;</i>图书</el-menu-item>
+    	<el-menu-item index="3"><i class="el-icon-setting iconfont fontleft">&#xe600;</i>文章</el-menu-item>
+      <el-submenu index="1">
+      	<template slot="title"><i class="el-icon-message iconfont fontleft ">&#xe691;</i>请假</template>
+          <el-menu-item index="1-1">请假</el-menu-item>
+          <el-menu-item index="1-2">请假审核</el-menu-item>
+         <el-menu-item index="1-3">历史记录</el-menu-item>
+         <el-menu-item index="1-3">请假小组管理</el-menu-item>
+       </el-submenu>
+    </el-menu>
+  </el-col>
+</el-row>
 				</div>
 				<div class="particulars">
 					<div id="zj5">
 						<div class="title">
-							<h1>请假小组管理><sapn>内部系统</sapn></h1>
+							<h1><a href="javascript:void(0)">请假小组管理</a>><sapn>内部系统</sapn></h1>
 							<a href="javascript:void(0);" class="iconfont minimize">&#xe6f3;</a>
 							<a href="javascript:void(0);" class="iconfont Windowed">&#xe6fe;</a>
 							<a href="javascript:window.opener=null;window.close()" class="iconfont close">&#xe6e6;</a>
@@ -172,7 +172,7 @@
 					opvalue2: '',
 					opvalue3: '',
 					opvalue4: '',
-					tabelr: [{ date: '04-24', name: '艾琳', stime: '04-24 09:00', etime: '04-25 18:00', duration: '2天', cause: '事假', datea: '王鹏', clas: 'thcolor1', state: '已通过' }, { date: '04-24', name: '王二', stime: '04-24 09:00', etime: '04-24 18:00', duration: '1天', cause: '事假', datea: '张永和', clas: 'thcolor2', state: '请假中' }, { date: '04-24', name: '张三', stime: '04-24 09:00', etime: '04-24 18:00', duration: '1天', cause: '事假', datea: '李白', clas: 'thcolor3', state: '已拒绝' }, { date: '04-24', name: '李四', stime: '04-24 09:00', etime: '04-24 18:00', duration: '1天', cause: '事假', datea: '刘备', clas: 'thcolor1', state: '已通过' }, { date: '04-24', name: '王五', stime: '04-24 09:00', etime: '04-24 18:00', duration: '1天', cause: '事假', datea: '赵云', clas: 'thcolor3', state: '已拒绝' }, { date: '04-24', name: '赵六', stime: '04-24 09:00', etime: '04-24 18:00', duration: '1天', cause: '事假', datea: '灰灰', clas: 'thcolor4', state: '已过期' }, ],
+					tabelr: [{ date: '04-24', name: '艾琳', stime: '04-24 09:00', etime: '04-25 18:00', duration: '2天', cause: '事假', datea: '王鹏', clas: 'thcolor1', state: '已通过' }, { date: '04-24', name: '王二', stime: '04-24 09:00', etime: '04-24 18:00', duration: '1天', cause: '事假', datea: '张永和', clas: 'thcolor2', state: '请假中' }, { date: '04-24', name: '张三', stime: '04-24 09:00', etime: '04-24 18:00', duration: '1天', cause: '事假', datea: '李白', clas: 'thcolor3', state: '已拒绝' }, { date: '04-24', name: '李四', stime: '04-24 09:00', etime: '04-24 18:00', duration: '1天', cause: '事假', datea: '刘备', clas: 'thcolor1', state: '已通过' }, { date: '04-24', name: '王五', stime: '04-24 09:00', etime: '04-24 18:00', duration: '1天', cause: '事假', datea: '赵云', clas: 'thcolor3', state: '已拒绝' }, { date: '04-24', name: '赵六', stime: '04-24 09:00', etime: '04-24 18:00', duration: '1天', cause: '事假', datea: '灰灰', clas: 'thcolor1', state: '已通过' }, ],
 					groupup: [{ name: '总裁办', color: '#476cff' }, { name: '项目经理', color: '#4785ff' }, { name: '内部系统', color: '#4797ff' }, { name: '千图网', color: '#47abff' }, { name: 'IPS', color: '#47c0ff' }, { name: '巧办网', color: '#47d2ff' }, { name: '千树网', color: '#47e0ff' }, { name: '千广网', color: '#ff7547' }, { name: '虎课网', color: '#ff8547' }, { name: '拍图网', color: '#ff9447' }, { name: '摄图网', color: '#ffa347' }, { name: '我图网', color: '#ffb347' }, { name: '千库网', color: '#ffc247' }, { name: '90设计', color: '#ffd147' }, { name: '视达网', color: '#ff4747' }, { name: '社交3.0', color: '#ff6547' }, ],
 					showhiad: false,
 					adddiamonds: false,
@@ -181,8 +181,14 @@
 					addpeo:false,//组件五
 				},
 				methods: {
+					 handleOpen(key, keyPath) {
+//      console.log(key, keyPath);
+      },
+      handleClose(key, keyPath) {
+//      console.log(key, keyPath);
+      },
 					compilem: function() {
-						this.showhiad = !this.showhiad;
+					 	this.showhiad = !this.showhiad;
 						if(this.showhiad == false) {
 							this.compile = '编辑项目小组';
 						} else if(this.showhiad == true) {
@@ -219,6 +225,18 @@
 						this.formLabelAlign.type = '';
 						this.formLabelAlign.desc = '';
 					},
+					selectup:function(e){
+					
+				},
+				size:function(){
+					var ize=this.$refs.isize.innerText;
+					console.log(ize);
+					if(ize.length > 4){
+						(this.$refs.isize).style.fontSize='12px';
+					}else{
+						(this.$refs.isize).style.fontSize='14px';
+					}
+				},
 					handleIconClick: function(ev) {
 						//   					 console.log(ev);
 					},

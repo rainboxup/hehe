@@ -52,15 +52,15 @@
 							<a href="javascript:window.opener=null;window.close()" class="iconfont close">&#xe6e6;</a>
 						</div>
 						<div class="group">
-							<a href="javascript:void(0);" class="fr redact" @click='compilem' v-text='compile'></a>
 							<ul>
 								<li v-for="i in groupup" v-bind:style="{ background: i.color}">
 									<a href="javascript:void(0);" v-text='i.name'>总裁办</a>
 									<span class="deleteli iconfont" v-if='showhiad'>&#xe6e6;</span>
 								</li>
 								<li class="compile">
-									<a href="javascript:void(0);" @click='adddiamonds=!adddiamonds'>+</a>
+									<a href="javascript:void(0);" @click='adddiamonds=!adddiamonds' class="iconfont">&#xe6f8;</a>
 								</li>
+								<li class="redactli"><a href="javascript:void(0);" class="redact" @click='compilem' v-text='compile'></a></li>
 							</ul>
 						</div>
 						<div class="powindow addbk" v-show='adddiamonds'>
@@ -304,8 +304,8 @@
 							duration: '1天',
 							cause: '事假',
 							datea: '灰灰',
-							clas: 'thcolor4',
-							state: '已过期'
+							clas: 'thcolor1',
+							state: '已通过'
 						},
 					],
 					groupup: [{

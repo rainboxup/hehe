@@ -1,10 +1,10 @@
 
 @font-face {font-family: "iconfont";
-  src: url('iconfont.eot?t=1493781168609'); /* IE9*/
-  src: url('iconfont.eot?t=1493781168609#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('iconfont.woff?t=1493781168609') format('woff'), /* chrome, firefox */
-  url('iconfont.ttf?t=1493781168609') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('iconfont.svg?t=1493781168609#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('iconfont.eot?t=1495095727170'); /* IE9*/
+  src: url('iconfont.eot?t=1495095727170#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1495095727170') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1495095727170') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1495095727170#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .iconfont {
@@ -39,11 +39,15 @@
 
 .icon-ic_notifications_off_px:before { content: "\eb14"; }
 
+.icon-icon-test:before { content: "\e606"; }
+
 .icon-CLOSE:before { content: "\e6e6"; }
 
 .icon-MAGNIFYINGGLASS:before { content: "\e6f1"; }
 
 .icon-MINUS:before { content: "\e6f3"; }
+
+.icon-PLUS:before { content: "\e6f8"; }
 
 .icon-STOP:before { content: "\e6fe"; }
 

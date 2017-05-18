@@ -12,6 +12,71 @@ body{
 a{
 	color: #111;
 }
+.el-col-8{
+	width: 100%;
+}
+.el-icon-setting:before{
+	content: '';
+}
+.el-icon-menu:before{
+	content: '';
+}
+.el-icon-message:before {
+    content: "";
+}
+.list ul{
+	background: #fff;
+}
+.list ul li{
+	color: #111;
+	height: 42px;
+	line-height: 42px;
+}
+.fontleft{
+	margin-right: 16px !important;
+}
+.fontlefti{
+	font-size: 20px !important;
+	position: relative;
+	top: 1px;
+	left: 1px;
+	margin-left: -3px;
+}
+.list ul li:hover{
+	background: #ededed;
+}
+.list ul li>div:hover{
+	background: #ededed;
+}
+.list ul li>div{
+	    height: 42px;
+    line-height: 42px;
+    color: #111;
+}
+.list ul li li{
+	font-size: 12px;
+	background: #fff;
+}
+.list ul li .el-menu li{
+	 height: 42px;
+    line-height: 42px;
+    padding-left: 52px !important;
+}
+.list ul li .el-menu li:hover{
+	background: #ededed;
+}
+.el-menu--horizontal.el-menu--dark .el-submenu .el-menu-item.is-active, .el-menu-item.is-active{
+	color:#111111;
+	background: #e0e0e0;
+}
+.el-submenu__icon-arrow {
+    position: absolute;
+    top: 53%;
+    right: 15px;
+    margin-top: -7px;
+    transition: transform .3s;
+    font-size: 12px;
+}
 .nav{
 	border-radius:4px 0 0 4px;
 	
@@ -30,7 +95,7 @@ a{
 	margin-top: 26px;
 	text-align: center;
 	color: #fff;
-	font-size: 26px;
+	font-size: 22px;
 }
 .fun:hover{
 	color: #0095F2;
@@ -159,6 +224,11 @@ a{
 .minimize:active{
 	background: #cccccc;
 }
+.pred{
+	padding-top: 29px;
+	padding-left: 20px;
+	color: #f23000;
+}
 .Windowed{
 	top:0;
 	right: 42px;
@@ -201,6 +271,7 @@ background: #d95736;
 	line-height:30px;
 	background: #e0e0e0;
 	color: #333333;
+	cursor:pointer;
 }
 .selectup2{
 	margin: 0 6px;
@@ -212,6 +283,7 @@ background: #d95736;
 	position: relative;
 	top: 1px;
 	font-size: 16px;
+	margin: -2px;
 }
 .selectup>ul{
 	background: #fff;
@@ -246,11 +318,13 @@ background: #d95736;
 	color: #333333;
 	background: #0095f2;
 	color: #fff;
+	cursor:pointer;
 }
 #fate{
 	width: 260px;
 	float: left;
 }
+
 #fate .bdate,#fate .edate{
 	width: 100%;
 	margin-top: 20px;
@@ -319,8 +393,9 @@ background: #d95736;
 .more{
 	color: #25a8fa;
 	float: right;
-	margin:14px -20px 0 0;
+	margin:14px -52px 0 0;
 }
+
 .qlisttop{
 	height: 185px;
 }
@@ -332,6 +407,11 @@ background: #d95736;
 }
 .qlistb ul{
 	padding-top: 2px;
+}
+.caution{
+	position: relative;
+	top: 1px;
+	margin:0 5px 0 -20px ;
 }
 /*组件一 E*/
 /*组件二 B*/
@@ -350,7 +430,7 @@ background: #d95736;
     border-radius: 4px;
 }
 .auditj::-webkit-scrollbar {
-    width: 8px;
+    width: 7px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
@@ -399,17 +479,12 @@ background: #d95736;
 }
 .pass{
 	margin-left: 25px;
-	color: #f23000;
-}
-.pass:hover{
-	color: #d92b00;
-}
-.refuse{
 	color: #0095f2;
 }
-.refuse:hover{
+.pass:hover{
 	color: #0086d9;
 }
+
 /*弹窗*/
 .powindow{
 	position: absolute;
@@ -509,6 +584,9 @@ background: #d95736;
 	background: #0095f2;
 	color: #fff;
 }
+.chunk-right{
+	margin-right: -12px;
+}
 /*组件二 E*/
 /*组件三 B*/
 .record{
@@ -516,14 +594,14 @@ background: #d95736;
 	overflow: auto;
 	height: 507px;
 }
-.record::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background-color: #d9d9d9;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
 }
-.record::-webkit-scrollbar {
-    width: 8px;
+::-webkit-scrollbar {
+    width: 7px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
@@ -568,7 +646,6 @@ background: #d95736;
 }
 .table th{
 	font-size: 14px;
-	font-weight: 500;
 	color: #111111;
 	padding-bottom: 5px;
 }
@@ -606,9 +683,7 @@ background: #d95736;
 .thcolor3{
 	color: #f26b49;
 }
-.thcolor4{
-	color: #999999;
-}
+
 /*组件三 E*/
 /*组件四 B*/
 .group{
@@ -655,8 +730,8 @@ right: -6px;
 }
 .group .compile>a{
 	color: #b2b2b2;
-	line-height: 68px;
-	font-size: 62px;
+	line-height: 83px;
+    font-size: 63px;
 }
 #zj4{
 	position: relative;
@@ -687,10 +762,13 @@ right: -6px;
 	padding: 20px 58px 0;
 }
 /*组件内样式 E*/
+.redactli{
+	width: 100px !important;
+}
 .redact{
-	position: absolute;
-	right: 38px;
-	top:74px;
+	font-size: 12px;
+	display: inline !important;
+	color: #111 !important;
 }
 /*组件四 E*/
 /*组件五 B*/

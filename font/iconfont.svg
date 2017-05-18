@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
 <svg xmlns="http://www.w3.org/2000/svg">
 <metadata>
-Created by FontForge 20120731 at Wed May  3 11:12:48 2017
+Created by FontForge 20120731 at Thu May 18 16:22:07 2017
  By admin
 </metadata>
 <defs>
@@ -72,6 +72,8 @@ q-62 52 -95 117.5t-33 136.5q0 101 62 186t168.5 135t232.5 50t232.5 -50t168.5 -135
     <glyph glyph-name="ic_notifications_off_px" unicode="&#xeb14;" 
 d="M490.5 -43q35.5 0 60.5 25t25 61h-171q0 -36 25 -61t60.5 -25zM768 448q0 97 -60.5 172.5t-152.5 97.5v29q0 26 -19 45t-45.5 19t-45 -19t-18.5 -45v-29q-30 -7 -62 -24l403 -403v157zM756 85l86 -85l54 54l-714 714l-54 -54l125 -125q-40 -65 -40 -141v-235l-85 -85v-43
 h628z" />
+    <glyph glyph-name="icon-test" unicode="&#xe606;" 
+d="M98 646v-677h677v677h-677zM725 20h-576v576h576v-576zM926 799v-677h-152v50h102v576h-575v-102h-52v153h677z" />
     <glyph glyph-name="CLOSE" unicode="&#xe6e6;" 
 d="M185 60q6 -6 14.5 -6t14.5 6l292 293l293 -293q6 -6 14.5 -6t14.5 6t6 14.5t-6 14.5l-292 292l292 293q6 6 6 15q0 8 -6 14t-14 6q-9 0 -15 -6l-293 -293l-292 293q-6 6 -15 6t-15 -6t-6 -14q0 -9 7 -15l292 -293l-292 -292q-6 -6 -6 -14.5t6 -14.5z" />
     <glyph glyph-name="MAGNIFYINGGLASS" unicode="&#xe6f1;" 
@@ -79,6 +81,8 @@ d="M425 228q90 0 159 59l216 -216q6 -6 14.5 -6t14.5 6t6 14.5t-6 14.5l-216 216q61 
 t60 145z" />
     <glyph glyph-name="MINUS" unicode="&#xe6f3;" 
 d="M819 405h-614q-9 0 -15 -6t-6 -14.5t6 -14.5t15 -6h614q9 0 15 6t6 14.5t-6 14.5t-15 6z" />
+    <glyph glyph-name="PLUS" unicode="&#xe6f8;" 
+d="M186 364h287v-287q0 -8 6 -14t14.5 -6t14.5 6t6 14v287h286q9 0 15 6t6 14.5t-6 14.5t-15 6h-286v286q0 9 -6 15t-14.5 6t-14.5 -6t-6 -15v-286h-287q-9 0 -15 -6t-6 -14.5t6 -14.5t15 -6z" />
     <glyph glyph-name="STOP" unicode="&#xe6fe;" 
 d="M190 52h614v0q9 0 15 6t6 14v615q0 8 -6 14t-15 6h-614q-9 0 -15 -6t-6 -14v-615q0 -8 6 -14t15 -6zM210 666h574v-573h-574v573z" />
     <glyph glyph-name="HAMBURGERMENU" unicode="&#xe70a;" 

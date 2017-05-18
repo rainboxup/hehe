@@ -66,6 +66,7 @@
 									<el-date-picker class='edate' format='yyyy-MM-dd HH:00:00' v-model="value2" type="datetime" placeholder="选择结束时间"> </el-date-picker>
 									<textarea class="multi-line" placeholder="请输入请假原因（事假可不填）"></textarea>
 									<a href="javascript:void(0)" class="submit">提交</a>
+									<p class="pred"><span class="iconfont caution">&#xe78a;</span>本季度你已请<span>事假5天6小时</span>，超过6天的部分会后双倍薪资。</p>
 						</div>
 						<div class="qlist">
 							<div class="qlisttop">
@@ -124,6 +125,7 @@
 				},
 				size:function(){
 					var ize=this.$refs.isize.innerText;
+					console.log(ize);
 					if(ize.length > 4){
 						(this.$refs.isize).style.fontSize='12px';
 					}else{
